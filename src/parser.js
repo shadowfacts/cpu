@@ -9,23 +9,16 @@ function parse(f, callback) {
 		const lines = data.toString().split("\n");
 		lines.forEach((line) => {
 			const parts = line.split(" ");
-			prog[parts[0]].apply(prog, parts.slice(1, parts.length));
+			const args = parts.slice(1, parts.length);
+			for (var i = 0; i < args.length; i++) {
+				if (!isNaN(args[i])) {
+					args[i] = parseFloat(args[i]);
+				}
+			}
+			prog[parts[0]].apply(prog, args);
 		});
 		callback(prog);
 	});
 };
 
 module.exports = parse;
-
-// module.exports = class Parser {
-
-// 	constructor(f) {
-// 		const prog = new Program();
-// 		const text = await fs.readFile(f);
-// 		const lines = text.split("\n");
-// 		lines.forEach((line) => {
-
-// 		});
-// 	}
-
-// }

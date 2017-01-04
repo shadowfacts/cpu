@@ -1,4 +1,12 @@
 const 11 a
-const 3 b
+const 4 b
 mul a b
+echo a
+mov a 0
+const 9 a
+const 10 b
+mul a b
+echo a
+mov 0 b
+add a b
 echo a
