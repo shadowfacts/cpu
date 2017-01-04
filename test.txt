@@ -1,0 +1,4 @@
+const 11 a
+const 3 b
+mul a b
+echo a
